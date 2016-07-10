@@ -4,12 +4,19 @@ import {
 	StyleSheet,
 	Text,
 	View,
+	Image,
+	TouchableOpacity,
 } from 'react-native'
+
+const zenImage = require('./assets/zen.png')
 
 class RelaxationStation extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
+				<TouchableOpacity style={styles.button} onPress={() => { alert('I was pressed!') }}>
+					<Image source={zenImage} style={styles.buttonImage} />
+				</TouchableOpacity>
 				<Text style={styles.readyText}>I'm ready to relax...</Text>
 			</View>
 		)
@@ -27,6 +34,19 @@ const styles = StyleSheet.create({
 		fontSize: 20,
 		fontStyle: 'italic',
 		color: '#ffffff',
+	},
+	button: {
+		backgroundColor: '#859a9b',
+		borderRadius: 20,
+		padding: 10,
+		marginBottom: 20,
+		// On Android we can't use the ShadowPropTypesIOS styles used in the course,
+		// so instead we rely on the very similar elevation property.
+		elevation: 2,
+	},
+	buttonImage: {
+		width: 200,
+		height: 200,
 	},
 })
 
