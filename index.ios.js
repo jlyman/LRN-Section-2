@@ -7,6 +7,7 @@ import {
 	Image,
 	TouchableOpacity,
 } from 'react-native'
+import Quote from './Quote'
 
 const zenImage = require('./assets/zen.png')
 
@@ -14,10 +15,11 @@ class RelaxationStation extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
-				<TouchableOpacity style={styles.button} onPress={() => { alert('I was pressed!') }}>
+				{/* <TouchableOpacity style={styles.button} onPress={() => { alert('I was pressed!') }}>
 					<Image source={zenImage} style={styles.buttonImage} />
 				</TouchableOpacity>
-				<Text style={styles.readyText}>I'm ready to relax...</Text>
+				<Text style={styles.readyText}>I'm ready to relax...</Text>*/}
+				<Quote quoteText="Amazing quote!" quoteSource="- Great Source!" />
 			</View>
 		)
 	}
@@ -28,7 +30,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: 'center',
 		alignItems: 'center',
-		backgroundColor: '#161737',
+		backgroundColor: '#efefef',
 	},
 	readyText: {
 		fontSize: 20,
