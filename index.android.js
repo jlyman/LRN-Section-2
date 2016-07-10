@@ -5,22 +5,26 @@ import {
 	Text,
 	View,
 	Image,
+	Navigator,
 	TouchableOpacity,
 } from 'react-native'
-import Quote from './Quote'
-
-const zenImage = require('./assets/zen.png')
+import StartScreen from './StartScreen'
+import QuoteScreen from './QuoteScreen'
 
 class RelaxationStation extends Component {
 	render() {
 		return (
-			<View style={styles.container}>
-				{/* <TouchableOpacity style={styles.button} onPress={() => { alert('I was pressed!') }}>
-					<Image source={zenImage} style={styles.buttonImage} />
-				</TouchableOpacity>
-				<Text style={styles.readyText}>I'm ready to relax...</Text>*/}
-				<Quote quoteText="Amazing quote!" quoteSource="- Great Source!" />
-			</View>
+			<Navigator
+				initialRoute={{ name: 'StartScreen' }}
+				renderScene={(route, navigator) => {
+					switch (route.name) {
+					case 'StartScreen':
+						return <StartScreen onStartHandler={() => navigator.push({ name: 'QuoteScreen' })} />
+					case 'QuoteScreen':
+						return <QuoteScreen />
+					}
+				}}
+			/>
 		)
 	}
 }
