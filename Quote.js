@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import {
 	View,
 	Text,
@@ -14,6 +14,11 @@ class Quote extends Component {
 			</View>
 		)
 	}
+}
+
+Quote.propTypes = {
+	quoteText: PropTypes.string.isRequired,
+	quoteSource: PropTypes.string.isRequired,
 }
 
 export default Quote
